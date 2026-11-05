@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tóth Kristóf - Önéletrajz / Curriculum Vitae</title>
+  <meta name="description" content="Tóth Kristóf hivatalos, nyomtatható A4 önéletrajza. Budapesti Corvinus Egyetem (GPME) & Pro Football Focus Elemző.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* CSS Reset & Variables */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --primary: #0f172a;
+      --secondary: #334155;
+      --muted: #64748b;
+      --accent: #059669;
+      --accent-dim: #ecfdf5;
+      --accent-blue: #0284c7;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    body {
+      font-family: var(--font-sans);
+      color: var(--primary);
+      background-color: #f1f5f9;
+      line-height: 1.45;
+      font-size: 9.8pt;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Screen Action Bar */
+    .screen-action-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #0f172a;
+      color: #ffffff;
+      padding: 0.65rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .bar-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .back-btn {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: 0.4rem;
+      border: 1px solid #334155;
+      transition: all 0.15s ease;
+    }
+    .back-btn:hover {
+      color: #ffffff;
+      border-color: #64748b;
+      background: #1e293b;
+    }
+    .bar-right {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .lang-toggle-btn {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #cbd5e1;
+      padding: 0.3rem 0.65rem;
+      border-radius: 0.35rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .lang-toggle-btn.active {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+    .print-main-btn {
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 0.4rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      transition: filter 0.15s ease;
+    }
+    .print-main-btn:hover { filter: brightness(1.1); }
+
+    /* A4 Page Container */
+    .a4-page {
+      max-width: 210mm;
+      min-height: 297mm;
+      margin: 1.5rem auto;
+      background: var(--bg);
+      padding: 14mm 16mm 14mm 16mm;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border-radius: 4px;
+    }
+
+    /* CV Header */
+    .cv-header {
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.85rem;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .candidate-name {
+      font-size: 20pt;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+    .candidate-title {
+      font-size: 10.5pt;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1.3;
+    }
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.2rem;
+      font-size: 8.5pt;
+      font-family: var(--font-mono);
+      color: var(--secondary);
+    }
+    .contact-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .contact-line a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Section Styles */
+    .cv-section {
+      margin-bottom: 1rem;
+      break-inside: avoid;
+    }
+    .section-title {
+      font-size: 10.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--primary);
+      border-bottom: 1.5px solid var(--border);
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.55rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 25px;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    /* Summary */
+    .summary-text {
+      font-size: 9.2pt;
+      color: var(--secondary);
+      line-height: 1.5;
+    }
+
+    /* Experience & Education Items */
+    .item-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .cv-item {
+      break-inside: avoid;
+    }
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.15rem;
+    }
+    .item-title-org {
+      font-size: 9.8pt;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .item-role {
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .item-date {
+      font-family: var(--font-mono);
+      font-size: 8.5pt;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .item-location {
+      font-size: 8.5pt;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .item-desc {
+      font-size: 8.8pt;
+      color: var(--secondary);
+      line-height: 1.45;
+      margin-top: 0.2rem;
+    }
+
+    /* Bullet List */
+    .duty-list {
+      list-style: none;
+      margin-top: 0.35rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .duty-list li {
+      position: relative;
+      padding-left: 1rem;
+      font-size: 8.8pt;
+      color: var(--secondary);
+      line-height: 1.4;
+    }
+    .duty-list li::before {
+      content: "▪";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 9pt;
+      top: -0.1rem;
+    }
+    .duty-list strong {
+      color: var(--primary);
+    }
+
+    /* 2-Column Grid for Projects & Skills */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .project-card {
+      background: #fafafa;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 0.55rem 0.65rem;
+      break-inside: avoid;
+    }
+    .project-title {
+      font-size: 9pt;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.15rem;
+    }
+    .project-meta {
+      font-family: var(--font-mono);
+      font-size: 7.8pt;
+      color: var(--accent-blue);
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .project-desc {
+      font-size: 8.2pt;
+      color: var(--secondary);
+      line-height: 1.35;
+    }
+
+    /* Skills Table */
+    .skills-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8.8pt;
+    }
+    .skills-table tr {
+      border-bottom: 1px solid #f1f5f9;
+    }
+    .skills-table td {
+      padding: 0.3rem 0;
+      vertical-align: top;
+    }
+    .skills-label {
+      font-weight: 700;
+      color: var(--primary);
+      width: 25%;
+      font-size: 8.5pt;
+    }
+    .skills-val {
+      color: var(--secondary);
+    }
+    .tag-chip {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 7.6pt;
+      background: #f1f5f9;
+      color: var(--secondary);
+      padding: 0.1rem 0.35rem;
+      border-radius: 3px;
+      margin-right: 0.25rem;
+      margin-bottom: 0.15rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* Coursework Chips */
+    .course-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 0.35rem;
+    }
+    .course-item {
+      font-size: 8.2pt;
+      background: var(--accent-dim);
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      padding: 0.15rem 0.45rem;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #ffffff !important;
+        font-size: 9.3pt !important;
+      }
+      .screen-action-bar { display: none !important; }
+      .a4-page {
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        max-width: 100% !important;
+        min-height: auto !important;
+      }
+      .project-card {
+        background: #ffffff !important;
+        border-color: #cbd5e1 !important;
+      }
+      a { text-decoration: none !important; color: inherit !important; }
+      @page {
+        size: A4 portrait;
+        margin: 12mm 15mm 12mm 15mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar (Non-Printing) -->
+  <div class="screen-action-bar">
+    <div class="bar-left">
+      <a href="index.html" class="back-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <span id="txt-back">Vissza a portfólióhoz</span>
+      </a>
+      <span style="font-size: 0.78rem; color: #94a3b8;">Tóth Kristóf • Hivatalos A4 Önéletrajz</span>
+    </div>
+    <div class="bar-right">
+      <button type="button" class="lang-toggle-btn active" id="btn-hu">HU</button>
+      <button type="button" class="lang-toggle-btn" id="btn-en">EN</button>
+      <button type="button" class="print-main-btn" onclick="window.print()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+        <span id="txt-print">Nyomtatás / Mentés PDF-ként</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- A4 Printable Document Body -->
+  <main class="a4-page">
+    
+    <!-- Header -->
+    <header class="cv-header">
+      <div>
+        <h1 class="candidate-name">Tóth Kristóf</h1>
+        <div class="candidate-title" data-cv="headerTitle">Gazdaság- és pénzügymatematikai elemzés hallgató | Kvantitatív elemző</div>
+      </div>
+      <div class="contact-details">
+        <div class="contact-line">
+          <span>Budapest / Eger, HU</span>
+        </div>
+        <div class="contact-line">
+          <a href="tel:+36308751075">+36 30 875 1075</a>
+        </div>
+        <div class="contact-line">
+          <a href="mailto:toth.kristof.eger@gmail.com">toth.kristof.eger@gmail.com</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Professional Summary -->
+    <section class="cv-section">
+      <h2 class="section-title" data-cv="secSummary">Szakmai Profil</h2>
+      <p class="summary-text" data-cv="summaryContent">
+        Gazdaság- és pénzügymatematikai elemzés szakos hallgató a Budapesti Corvinus Egyetemen, 3 év nemzetközi sportanalitikai és mikroadat-elemzői tapasztalattal a Pro Football Focusnál. Magas szintű jártasság a sztochasztikus modellezés, pénzügyi matematika, ökonometria és adatelemzés (Python, R, SQL) terén. Erős analitikus és stratégiai gondolkodásmód, napi szintű operatív angol munkanyelvű tapasztalat amerikai csapattal.
+      </p>
+    </section>
+
+    <!-- Experience -->
+    <section class="cv-section">
+      <h2 class="section-title" data-cv="secExp">Szakmai Tapasztalat</h2>
+      <div class="item-group">
+        <article class="cv-item">
+          <div class="item-header">
+            <div>
+              <span class="item-title-org">Pro Football Focus (PFF)</span> — <span class="item-role" data-cv="pffRole">Elemző (Analyst)</span>
+            </div>
+            <span class="item-date">2022 – 2025</span>
+          </div>
+          <p class="item-desc" data-cv="pffIntro">
+            Adatok gyűjtésével, mikroszintű modellezésével és sportanalitikával foglalkozó vezető amerikai vállalat (Cincinnati, OH).
+          </p>
+          <ul class="duty-list">
+            <li data-cv="pffDuty1">
+              <strong>Nagy pontosságú sportstatisztikai adatgyűjtés:</strong> Mérkőzésenként 150+ precíziós mikroadatpont (pass protection formációk, route tree-k, coverage shell-ek) rögzítése és kategorizálása az amerikai NFL/NCAA sztenderdek szerint.
+            </li>
+            <li data-cv="pffDuty2">
+              <strong>Minőségbiztosítás (QA) és adatkonzisztencia:</strong> Valós idejű statisztikai eltérések és anomáliák szűrése; 99.4%+ pontossági ráta fenntartása a központi validációs tesztekben.
+            </li>
+            <li data-cv="pffDuty3">
+              <strong>Kvantitatív metrikák & relációs adatmodellezés:</strong> Közreműködés olyan mutatók validálásában, mint a PFF WAR, Expected Points Added (EPA) és Pass Rush Win Rate.
+            </li>
+            <li data-cv="pffDuty4">
+              <strong>Nemzetközi együttműködés:</strong> Napi szintű operatív, szakmai angol nyelvű együttműködés az amerikai központi elemzői és adatmérnöki stábbal.
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="cv-section">
+      <h2 class="section-title" data-cv="secEdu">Tanulmányok</h2>
+      <div class="item-group">
+        <article class="cv-item">
+          <div class="item-header">
+            <div>
+              <span class="item-title-org">Budapesti Corvinus Egyetem</span>
+            </div>
+            <span class="item-date">2021 – Jelenleg (Folyamatban)</span>
+          </div>
+          <div class="item-role" data-cv="corvinusDegree">Gazdaság- és pénzügymatematikai elemzés (GPME)</div>
+          <p class="item-desc" data-cv="corvinusDesc">
+            Közép-Európa egyik legszigorúbb kvantitatív képzése: mélyreható matematikai, sztochasztikus, ökonometriai és tőkepiaci elméleti alapozás.
+          </p>
+          <div class="course-grid">
+            <span class="course-item" data-cv="c1">Ökonometria I-II (Idősorok & Panel)</span>
+            <span class="course-item" data-cv="c2">Valószínűségszámítás & Statisztika</span>
+            <span class="course-item" data-cv="c3">Sztochasztikus analízis & Pénzügyi matematika</span>
+            <span class="course-item" data-cv="c4">Portfólióelmélet & Kockázatkezelés</span>
+            <span class="course-item" data-cv="c5">Többváltozós kalkulus & Lineáris algebra</span>
+            <span class="course-item" data-cv="c6">Mikro- és Makroökonómia</span>
+          </div>
+        </article>
+
+        <article class="cv-item">
+          <div class="item-header">
+            <div>
+              <span class="item-title-org">Egri Dobó István Gimnázium</span>
+            </div>
+            <span class="item-date">2021</span>
+          </div>
+          <div class="item-role" data-cv="doboDegree">Érettségi bizonyítvány</div>
+          <p class="item-desc" data-cv="doboDesc">Kiváló reál és logikai alapok, emelt szintű analitikus és problémamegoldó felkészültség.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="cv-section">
+      <h2 class="section-title" data-cv="secProjects">Kiemelt Kvantitatív Projektek</h2>
+      <div class="grid-2col">
+        <div class="project-card">
+          <div class="project-title" data-cv="p1Title">Pénzügyi idősorelemzés és volatilitás-előrejelzés</div>
+          <div class="project-meta">Python, R (rugarch), statsmodels, Matplotlib</div>
+          <p class="project-desc" data-cv="p1Desc">
+            S&P 500 és BUX részvényindexek napi hozamsorainak vizsgálata. ARIMA-GARCH és EGARCH volatilitásmodellezés, 95% és 99% Value-at-Risk (VaR) előrejelzés Kupiec-féle visszateszteléssel.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-title" data-cv="p2Title">PFF Valószínűségi Döntéstámogató Rendszer</div>
+          <div class="project-meta">Python, SQL, SciPy, Expected Points Added (EPA)</div>
+          <p class="project-desc" data-cv="p2Desc">
+            Play-by-play mikroadatokra épülő valószínűségi döntési modell 4. kísérleti szituációkra. EPA és Win Probability (WP) szimulációk statisztikai modellezéssel.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-title" data-cv="p3Title">Kvantitatív Portfólió-optimalizálás & Monte Carlo</div>
+          <div class="project-meta">Python, NumPy, SciPy.optimize, Plotly</div>
+          <p class="project-desc" data-cv="p3Desc">
+            Markowitz-féle hatékony határgörbe kalkuláció Sharpe-ráta maximalizálással, tőkeallokációs egyenessel és 10 000 futásos Monte Carlo szimulációval a farokkockázat és drawdown vizsgálatára.
+          </p>
+        </div>
+
+        <div class="project-card">
+          <div class="project-title" data-cv="p4Title">Makrogazdasági és Pénzügyi Ökonometriai Elemzés</div>
+          <div class="project-meta">R, SPSS, LaTeX, VAR & Cointegration</div>
+          <p class="project-desc" data-cv="p4Desc">
+            Vektor-autoregresszív (VAR) és Johansen-kointegrációs vizsgálat a jegybanki kamat, infláció és devizaárfolyamok dinamikus impulzus-válasz kapcsolataira.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills & Languages -->
+    <section class="cv-section">
+      <h2 class="section-title" data-cv="secSkills">Készségek & Eszköztár</h2>
+      <table class="skills-table">
+        <tr>
+          <td class="skills-label" data-cv="skQuant">Kvantitatív & Kód:</td>
+          <td class="skills-val">
+            <span class="tag-chip">Python (pandas, numpy, statsmodels)</span>
+            <span class="tag-chip">R (tidyverse, rugarch)</span>
+            <span class="tag-chip">SQL (relációs adatbázisok)</span>
+            <span class="tag-chip">SPSS</span>
+            <span class="tag-chip">Matlab</span>
+            <span class="tag-chip">MS Excel (Power Query, Solver)</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="skills-label" data-cv="skTools">Eszközök & Design:</td>
+          <td class="skills-val">
+            <span class="tag-chip">LaTeX (tudományos publikációk)</span>
+            <span class="tag-chip">Figma</span>
+            <span class="tag-chip">Adobe InDesign / Photoshop</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="skills-label" data-cv="skLang">Nyelvtudás:</td>
+          <td class="skills-val">
+            <strong>Magyar:</strong> Anyanyelv • 
+            <strong>Angol:</strong> B2 Komplex bizonyítvány, <em>de facto C1 munkanyelv</em> (3+ év napi operatív munka amerikai csapattal)
+          </td>
+        </tr>
+        <tr>
+          <td class="skills-label" data-cv="skSoft">Kompetenciák:</td>
+          <td class="skills-val" data-cv="skSoftVal">
+            Analitikus problémamegoldás, Stratégiai rendszerszemlélet, Csapatmunka nemzetközi környezetben, Prezentáció és adatalapú döntéstámogatás.
+          </td>
+        </tr>
+      </table>
+    </section>
+
+  </main>
+
+  <script>
+    (function() {
+      const CV_TRANSLATIONS = {
+        hu: {
+          back: 'Vissza a portfólióhoz',
+          print: 'Nyomtatás / Mentés PDF-ként',
+          headerTitle: 'Gazdaság- és pénzügymatematikai elemzés hallgató | Kvantitatív elemző',
+          secSummary: 'Szakmai Profil',
+          summaryContent: 'Gazdaság- és pénzügymatematikai elemzés szakos hallgató a Budapesti Corvinus Egyetemen, 3 év nemzetközi sportanalitikai és mikroadat-elemzői tapasztalattal a Pro Football Focusnál. Magas szintű jártasság a sztochasztikus modellezés, pénzügyi matematika, ökonometria és adatelemzés (Python, R, SQL) terén. Erős analitikus és stratégiai gondolkodásmód, napi szintű operatív angol munkanyelvű tapasztalat amerikai csapattal.',
+          secExp: 'Szakmai Tapasztalat',
+          pffRole: 'Elemző (Analyst)',
+          pffIntro: 'Adatok gyűjtésével, mikroszintű modellezésével és sportanalitikával foglalkozó vezető amerikai vállalat (Cincinnati, OH).',
+          pffDuty1: '<strong>Nagy pontosságú sportstatisztikai adatgyűjtés:</strong> Mérkőzésenként 150+ precíziós mikroadatpont (pass protection formációk, route tree-k, coverage shell-ek) rögzítése és kategorizálása az amerikai NFL/NCAA sztenderdek szerint.',
+          pffDuty2: '<strong>Minőségbiztosítás (QA) és adatkonzisztencia:</strong> Valós idejű statisztikai eltérések és anomáliák szűrése; 99.4%+ pontossági ráta fenntartása a központi validációs tesztekben.',
+          pffDuty3: '<strong>Kvantitatív metrikák & relációs adatmodellezés:</strong> Közreműködés olyan mutatók validálásában, mint a PFF WAR, Expected Points Added (EPA) és Pass Rush Win Rate.',
+          pffDuty4: '<strong>Nemzetközi együttműködés:</strong> Napi szintű operatív, szakmai angol nyelvű együttműködés az amerikai központi elemzői és adatmérnöki stábbal.',
+          secEdu: 'Tanulmányok',
+          corvinusDegree: 'Gazdaság- és pénzügymatematikai elemzés (GPME)',
+          corvinusDesc: 'Közép-Európa egyik legszigorúbb kvantitatív képzése: mélyreható matematikai, sztochasztikus, ökonometriai és tőkepiaci elméleti alapozás.',
+          c1: 'Ökonometria I-II (Idősorok & Panel)',
+          c2: 'Valószínűségszámítás & Statisztika',
+          c3: 'Sztochasztikus analízis & Pénzügyi matematika',
+          c4: 'Portfólióelmélet & Kockázatkezelés',
+          c5: 'Többváltozós kalkulus & Lineáris algebra',
+          c6: 'Mikro- és Makroökonómia',
+          doboDegree: 'Érettségi bizonyítvány',
+          doboDesc: 'Kiváló reál és logikai alapok, emelt szintű analitikus és problémamegoldó felkészültség.',
+          secProjects: 'Kiemelt Kvantitatív Projektek',
+          p1Title: 'Pénzügyi idősorelemzés és volatilitás-előrejelzés',
+          p1Desc: 'S&P 500 és BUX részvényindexek napi hozamsorainak vizsgálata. ARIMA-GARCH és EGARCH volatilitásmodellezés, 95% és 99% Value-at-Risk (VaR) előrejelzés Kupiec-féle visszateszteléssel.',
+          p2Title: 'PFF Valószínűségi Döntéstámogató Rendszer',
+          p2Desc: 'Play-by-play mikroadatokra épülő valószínűségi döntési modell 4. kísérleti szituációkra. EPA és Win Probability (WP) szimulációk statisztikai modellezéssel.',
+          p3Title: 'Kvantitatív Portfólió-optimalizálás & Monte Carlo',
+          p3Desc: 'Markowitz-féle hatékony határgörbe kalkuláció Sharpe-ráta maximalizálással, tőkeallokációs egyenessel és 10 000 futásos Monte Carlo szimulációval a farokkockázat és drawdown vizsgálatára.',
+          p4Title: 'Makrogazdasági és Pénzügyi Ökonometriai Elemzés',
+          p4Desc: 'Vektor-autoregresszív (VAR) és Johansen-kointegrációs vizsgálat a jegybanki kamat, infláció és devizaárfolyamok dinamikus impulzus-válasz kapcsolataira.',
+          secSkills: 'Készségek & Eszköztár',
+          skQuant: 'Kvantitatív & Kód:',
+          skTools: 'Eszközök & Design:',
+          skLang: 'Nyelvtudás:',
+          skSoft: 'Kompetenciák:',
+          skSoftVal: 'Analitikus problémamegoldás, Stratégiai rendszerszemlélet, Csapatmunka nemzetközi környezetben, Prezentáció és adatalapú döntéstámogatás.'
+        },
+        en: {
+          back: 'Back to Portfolio',
+          print: 'Print / Save as PDF',
+          headerTitle: 'Applied Mathematics in Economics and Finance Student | Quantitative Analyst',
+          secSummary: 'Professional Profile',
+          summaryContent: 'Applied Mathematics in Economics and Finance student at Corvinus University of Budapest, with 3 years of international sports analytics and micro-data experience at Pro Football Focus. Strong competencies in stochastic modeling, financial mathematics, econometrics, and computational analytics (Python, R, SQL). Proven analytical mindset with daily operational English experience in US teams.',
+          secExp: 'Professional Experience',
+          pffRole: 'Analyst',
+          pffIntro: 'Leading US sports micro-data collection and quantitative analytics firm (Cincinnati, OH).',
+          pffDuty1: '<strong>High-Precision Sports Data Collection:</strong> Tagging and classifying 150+ micro-level data points per snap (pass protection schemes, route trees, coverage shells) meeting NFL/NCAA standards.',
+          pffDuty2: '<strong>Quality Assurance & Data Pipeline Integrity:</strong> Detecting live statistical anomalies and auditing discrepancies with a 99.4%+ accuracy threshold against master calibration sets.',
+          pffDuty3: '<strong>Quantitative Metrics & Relational Modeling:</strong> Auditing advanced proprietary metrics including PFF WAR, Expected Points Added (EPA), and Pass Rush Win Rate.',
+          pffDuty4: '<strong>Cross-Functional Collaboration:</strong> Daily professional English communications with US central analytics and data engineering headquarters.',
+          secEdu: 'Education',
+          corvinusDegree: 'Applied Mathematics in Economics and Finance',
+          corvinusDesc: 'One of Central Europe’s most rigorous quantitative programs, combining pure mathematics, stochastic calculus, econometrics, and asset pricing theory.',
+          c1: 'Econometrics I-II (Time Series & Panel)',
+          c2: 'Probability & Mathematical Statistics',
+          c3: 'Stochastic Analysis & Financial Mathematics',
+          c4: 'Portfolio Theory & Risk Management',
+          c5: 'Multivariate Calculus & Linear Algebra',
+          c6: 'Micro- and Macroeconomics',
+          doboDegree: 'High School Graduation',
+          doboDesc: 'Distinguished STEM and mathematical foundation, advanced problem-solving readiness.',
+          secProjects: 'Featured Quantitative Projects',
+          p1Title: 'Financial Time Series & Volatility Forecasting',
+          p1Desc: 'Econometric analysis of daily returns for S&P 500 and BUX indices. ARIMA-GARCH and EGARCH volatility modeling, 95% and 99% Value-at-Risk (VaR) forecasting with Kupiec backtesting.',
+          p2Title: 'NFL Micro-Data Analytics & Decision Engine',
+          p2Desc: 'Probabilistic decision model for 4th-down game scenarios leveraging play-by-play micro-data. Expected Points Added (EPA) and Win Probability (WP) simulations.',
+          p3Title: 'Quantitative Portfolio Optimization & Monte Carlo',
+          p3Desc: 'Markowitz Efficient Frontier calculation maximizing Sharpe ratio, Capital Allocation Line plotting, and 10,000-iteration Monte Carlo simulation to quantify portfolio tail risk.',
+          p4Title: 'Macroeconometric VAR & Cointegration Analysis',
+          p4Desc: 'Vector Autoregressive (VAR) and Johansen cointegration modeling investigating the dynamics between central bank interest rates, inflation, and FX rates.',
+          secSkills: 'Skills & Toolbox',
+          skQuant: 'Quant & Code:',
+          skTools: 'Tools & Design:',
+          skLang: 'Languages:',
+          skSoft: 'Competencies:',
+          skSoftVal: 'Analytical problem solving, Strategic system modeling, International team collaboration, Presentation of complex quantitative insights.'
+        }
+      };
+
+      function setLang(lang) {
+        document.documentElement.lang = lang;
+        document.getElementById('btn-hu').classList.toggle('active', lang === 'hu');
+        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+        document.getElementById('txt-back').textContent = CV_TRANSLATIONS[lang].back;
+        document.getElementById('txt-print').textContent = CV_TRANSLATIONS[lang].print;
+
+        document.querySelectorAll('[data-cv]').forEach(el => {
+          const key = el.getAttribute('data-cv');
+          if (CV_TRANSLATIONS[lang][key]) {
+            el.innerHTML = CV_TRANSLATIONS[lang][key];
+          }
+        });
+        localStorage.setItem('cv_lang', lang);
+      }
+
+      document.getElementById('btn-hu').addEventListener('click', () => setLang('hu'));
+      document.getElementById('btn-en').addEventListener('click', () => setLang('en'));
+
+      const savedLang = localStorage.getItem('cv_lang') || 'hu';
+      setLang(savedLang);
+    })();
+  </script>
+</body>
+</html>
