@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="hu" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tóth Kristóf | Gazdaság- és pénzügymatematikai elemzés hallgató</title>
+  <meta name="description" content="Tóth Kristóf: Gazdaság- és pénzügymatematikai elemzés szakos hallgató a Budapesti Corvinus Egyetemen, tapasztalat: Pro Football Focus (PFF) Elemző.">
+  <meta name="author" content="Tóth Kristóf">
+  <meta name="color-scheme" content="dark light">
+  <meta name="theme-color" content="#080c14">
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Keyboard Skip Link for Accessibility -->
+  <a href="#main-content" class="skip-link" data-i18n="skipLink">Ugrás a tartalomra</a>
+
+  <!-- Compact Top Header -->
+  <header class="site-header" role="banner">
+    <div class="header-inner container">
+      <div class="brand">
+        <span class="brand-monogram">TK</span>
+        <div class="brand-info">
+          <span class="brand-name">Tóth Kristóf</span>
+          <span class="brand-badge" data-i18n="headerStatus">
+            <span class="status-pulse" aria-hidden="true"></span>
+            Budapesti Corvinus Egyetem
+          </span>
+        </div>
+      </div>
+
+      <nav class="nav-controls" aria-label="Weboldal vezérlők">
+        <!-- Language Switcher HU / EN -->
+        <div class="lang-switch-group" role="group" aria-label="Nyelvválasztó">
+          <button id="lang-hu" class="lang-btn active" type="button" aria-pressed="true" aria-label="Magyar nyelv">
+            HU
+          </button>
+          <span class="lang-divider" aria-hidden="true">/</span>
+          <button id="lang-en" class="lang-btn" type="button" aria-pressed="false" aria-label="English language">
+            EN
+          </button>
+        </div>
+
+        <!-- Theme Switcher: Dark / Light / High Contrast -->
+        <div class="theme-dropdown-wrap">
+          <button id="theme-btn" class="icon-btn theme-toggle-btn" type="button" aria-label="Téma váltása" title="Téma váltása">
+            <svg class="theme-icon theme-icon-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <svg class="theme-icon theme-icon-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="theme-icon theme-icon-contrast" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 2a10 10 0 0 1 0 20z" fill="currentColor"></path>
+            </svg>
+            <span class="sr-only" data-i18n="themeBtnText">Téma váltása</span>
+          </button>
+        </div>
+
+        <!-- Print / PDF CV Button -->
+        <button id="print-cv-btn" class="icon-btn" type="button" aria-label="CV Nyomtatása / Mentés PDF-ként" title="Nyomtatás / PDF">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span class="btn-text-responsive" data-i18n="printBtnText">Nyomtatás / PDF</span>
+        </button>
+
+        <!-- Direct vCard Download -->
+        <button id="vcard-top-btn" class="btn-primary-sm" type="button" aria-label="Névjegy letöltése vCard formátumban">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span data-i18n="vcardBtnText">vCard Mentése</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Bento Grid (Dense & Compact) -->
+  <main id="main-content" class="container bento-layout" role="main">
+
+    <!-- ========================================================
+         TILE 1: HERO SPAN (Profile, Headline & Quick Connect)
+         ======================================================== -->
+    <section class="bento-card hero-tile" aria-labelledby="hero-name">
+      <div class="card-glass-glow" aria-hidden="true"></div>
+      
+      <div class="hero-top-meta">
+        <div class="tag-pill tag-accent">
+          <span data-i18n="heroPill">Corvinus Egyetem Hallgató • Elemző</span>
+        </div>
+        <div class="location-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <span>Budapest / Eger, HU</span>
+        </div>
+      </div>
+
+      <div class="hero-main-content">
+        <h1 id="hero-name" class="hero-name">Tóth Kristóf</h1>
+        <p class="hero-title" data-i18n="heroTitle">
+          Gazdaság- és pénzügymatematikai elemzés hallgató | Budapesti Corvinus Egyetem
+        </p>
+
+        <p class="hero-bio" data-i18n="heroBio">
+          Gazdaság- és pénzügymatematikai elemzés szakos hallgató a Budapesti Corvinus Egyetemen, többéves nemzetközi sportanalitikai és adatelemzői tapasztalattal (Pro Football Focus). Fókuszterületek: statisztikai modellezés, kvantitatív elemzés, adatvizualizáció és stratégiai döntéstámogatás.
+        </p>
+      </div>
+
+      <!-- Quick Action Contact Bars with Micro-Logos -->
+      <div class="hero-action-row">
+        <!-- Email Quick Bar -->
+        <div class="contact-pill-action">
+          <a href="mailto:toth.kristof.eger@gmail.com" class="contact-link" aria-label="E-mail küldése: toth.kristof.eger@gmail.com">
+            <span class="contact-icon-wrap" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </span>
+            <span class="contact-val">toth.kristof.eger@gmail.com</span>
+          </a>
+          <button type="button" class="copy-btn" data-copy="toth.kristof.eger@gmail.com" data-type="email" aria-label="E-mail cím másolása" title="Másolás vágólapra">
+            <svg class="copy-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <svg class="check-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Phone Quick Bar -->
+        <div class="contact-pill-action">
+          <a href="tel:+36308751075" class="contact-link" aria-label="Telefonszám hívása: +36 30 875 1075">
+            <span class="contact-icon-wrap" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+            </span>
+            <span class="contact-val">+36 30 875 1075</span>
+          </a>
+          <button type="button" class="copy-btn" data-copy="+36308751075" data-type="phone" aria-label="Telefonszám másolása" title="Másolás vágólapra">
+            <svg class="copy-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <svg class="check-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Semantic Highlights (No Percentages) -->
+      <div class="hero-stats-grid">
+        <div class="stat-badge-item">
+          <span class="stat-badge-top" data-i18n="badgePff">Pro Football Focus</span>
+          <span class="stat-badge-sub" data-i18n="badgePffDesc">2022 – 2025 | Elemző</span>
+        </div>
+        <div class="stat-badge-item">
+          <span class="stat-badge-top" data-i18n="badgeCorvinus">Corvinus Egyetem</span>
+          <span class="stat-badge-sub" data-i18n="badgeCorvinusDesc">Gazdaság- és pénzügymatematika</span>
+        </div>
+        <div class="stat-badge-item">
+          <span class="stat-badge-top" data-i18n="badgeFocus">Fókuszterületek</span>
+          <span class="stat-badge-sub" data-i18n="badgeFocusDesc">Adatelemzés & Modellezés</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         TILE 2: SKILL MATRIX (RICH LOGOS, NO RADAR, NO PERCENTAGES)
+         ======================================================== -->
+    <section class="bento-card skill-matrix-tile" aria-labelledby="skills-heading">
+      <div class="card-glass-glow" aria-hidden="true"></div>
+      <div class="card-header-flex">
+        <div>
+          <span class="section-eyebrow" data-i18n="skillEyebrow">Eszköztár & Készségek</span>
+          <h2 id="skills-heading" class="card-title" data-i18n="skillHeading">Készségek</h2>
+        </div>
+      </div>
+
+      <!-- Filterable Skill Category Pills -->
+      <div class="skill-filters" role="tablist" aria-label="Készség kategóriák">
+        <button class="filter-pill active" data-filter="all" role="tab" aria-selected="true" aria-controls="skill-list" type="button">
+          <span data-i18n="filterAll">Mind</span> <span class="filter-badge">9</span>
+        </button>
+        <button class="filter-pill" data-filter="quant" role="tab" aria-selected="false" aria-controls="skill-list" type="button">
+          <span data-i18n="filterQuant">Kvantitatív</span> <span class="filter-badge">5</span>
+        </button>
+        <button class="filter-pill" data-filter="design" role="tab" aria-selected="false" aria-controls="skill-list" type="button">
+          <span data-i18n="filterDesign">Kreatív</span> <span class="filter-badge">1</span>
+        </button>
+        <button class="filter-pill" data-filter="soft" role="tab" aria-selected="false" aria-controls="skill-list" type="button">
+          <span data-i18n="filterSoft">Soft Skills</span> <span class="filter-badge">3</span>
+        </button>
+      </div>
+
+      <!-- Live Region for Screen Readers -->
+      <div id="skill-announcer" class="sr-only" aria-live="polite">Összes készség megjelenítve</div>
+
+      <!-- Compact Logo-Rich Skill Items List -->
+      <div id="skill-list" class="skill-tags-grid">
+        
+        <!-- 1. Python -->
+        <div class="skill-item" data-category="quant">
+          <div class="skill-logo-wrap" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M11.91 2C6.83 2 7.14 4.2 7.14 4.2l.01 2.29h4.86v.69H5.2S2 6.8 2 11.92c0 5.12 2.79 4.93 2.79 4.93h1.66v-2.34s-.09-2.79 2.75-2.79h4.72s2.66.04 2.66-2.6V4.6S16.99 2 11.91 2zm-2.6 1.48a.95.95 0 1 1 0 1.9.95.95 0 0 1 0-1.9z" fill="#387eb8"/>
+              <path d="M12.09 22c5.08 0 4.77-2.2 4.77-2.2l-.01-2.29h-4.86v-.69h6.81S22 17.2 22 12.08c0-5.12-2.79-4.93-2.79-4.93h-1.66v2.34s.09 2.79-2.75 2.79H10.08s-2.66-.04-2.66 2.6v4.52s-.41 2.6 4.67 2.6zm2.6-1.48a.95.95 0 1 1 0-1.9.95.95 0 0 1 0 1.9z" fill="#ffe052"/>
+            </svg>
+          </div>
+          <div class="skill-item-body">
+            <div class="skill-item-header">
+              <span class="skill-name">Python</span>
+              <span class="skill-level-chip" data-i18n="tagAdvanced">Haladó</span>
+            </div>
+            <div class="skill-item-tags">
+              <span class="skill-tag">pandas</span>
+              <span class="skill-tag">numpy</span>
+              <span class="skill-tag">modellezés</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. R Nyelv -->
+        <div class="skill-item" data-category="quant">
+          <div class="skill-logo-wrap r-logo-bg" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <ellipse cx="12" cy="12" rx="10" ry="7.5" fill="#276DC3" fill-opacity="0.18" stroke="#276DC3" stroke-width="1.8"/>
+              <path d="M8.5 8h4.2a2.3 2.3 0 0 1 2.3 2.3c0 1.6-1.2 2.3-2.3 2.3H10.5v3.4H8.5V8zm2 3.2h2.2a.9.9 0 0 0 0-1.8h-2.2v1.8zm2.8 2.3l2.7 3.9h2.2l-2.9-4.1h-2z" fill="#276DC3"/>
+            </svg>
+          </div>
+          <div class="skill-item-body">
+            <div class="skill-item-header">
+              <span class="skill-name">R Nyelv</span>
+              <span class="skill-level-chip" data-i18n="tagAdvanced">Haladó</span>
+            </div>
+            <div class="skill-item-tags">
+              <span class="skill-tag">ökonometria</span>
+              <span class="skill-tag">statisztika</span>
+              <span class="skill-tag">ggplot2</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. SPSS -->
+        <div class="skill-item" data-category="quant">
+          <div class="skill-logo-wrap spss-logo-bg" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <rect x="2" y="2" width="20" height="20" rx="5" fill="#0F62FE" fill-opacity="0.15" stroke="#0F62FE" stroke-width="1.6"/>
+              <path d="M7 8h10M7 12h10M7 16h6" stroke="#0F62FE" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="16.5" cy="15.5" r="1.5" fill="#0F62FE"/>
+            </svg>
+          </div>
+          <div class="skill-item-body">
+            <div class="skill-item-header">
+              <span class="skill-name">SPSS</span>
+              <span class="skill-level-chip" data-i18n="tagApplied">Alkalmazott</span>
+            </div>
+            <div class="skill-item-tags">
+              <span class="skill-tag">hipotézisvizsgálat</span>
+              <span class="skill-tag">többváltozós analízis</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Matlab -->
+        <div class="skill-item" data-category="quant">
+          <div class="skill-logo-wrap matlab-logo-bg" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M3 16.5l4-2.5 3.5 5 3.5-12 4.5 7.5 2.5-1.5" stroke="#D33804" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="14" cy="7" r="1.8" fill="#D33804"/>
+            </svg>
+          </div>
+          <div class="skill-item-body">
+            <div class="skill-item-header">
+              <span class="skill-name">Matlab</span>
+              <span class="skill-level-chip" data-i18n="tagApplied">Alkalmazott</span>
+            </div>
+            <div class="skill-item-tags">
+              <span class="skill-tag">numerikus módszerek</span>
+              <span class="skill-tag">mátrixalgebra</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. MS Office / Excel -->
+        <div class="skill-item" data-category="quant">
+          <div class="skill-logo-wrap excel-logo-bg" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <rect x="2.5" y="2.5" width="19" height="19" rx="4" fill="#107C41" fill-opacity="0.18" stroke="#107C41" stroke-width="1.8"/>
+              <path d="M7.5 7.5l4.2 4.5-4.2 4.5h2.4l3-3.3 3 3.3H18l-4.2-4.5 4.2-4.5h-2.4l-3 3.3-3-3.3H7.5z" fill="#107C41"/>
+            </svg>
+          </div>
+          <div class="skill-item-body">
+            <div class="skill-item-header">
+              <span class="skill-name">MS Office / Excel</span>
+              <span class="skill-level-chip" data-i18n="tagExpert">Expert</span>
+            </div>
+            <div class="skill-item-tags">
+              <span class="skill-tag">pénzügyi modellek</span>
+              <span class="skill-tag">összetett függvények</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Design & Kiadványszerkesztés -->
+        <div class="skill-item" data-category="design">
+          <div class="skill-logo-wrap design-logo-bg" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+              <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+              <circle cx="11" cy="11" r="2"></circle>
+            </svg>
+          </div>
+          <div class="skill-item-body">
+            <div class="skill-item-header">
+              <span class="skill-name" data-i18n="skillDesignName">Kép- és Kiadványszerkesztés</span>
+              <span class="skill-level-chip" data-i18n="tagAdvanced">Haladó</span>
+            </div>
+            <div class="skill-item-tags">
+              <span class="skill-tag">kiadványok</span>
+              <span class="skill-tag">vizuális elrendezések</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Kommunikáció -->
+        <div class="skill-item" data-category="soft">
+          <div class="skill-logo-wrap soft-logo-bg" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              <path d="M8 9h8M8 13h5"></path>
+            </svg>
+          </div>
+          <div class="skill-item-body">
+            <div class="skill-item-header">
+              <span class="skill-name" data-i18n="skillCommName">Jó Kommunikáció</span>
+              <span class="skill-level-chip" data-i18n="tagStrong">Magas szintű</span>
+            </div>
+            <div class="skill-item-tags">
+              <span class="skill-tag">eredmények átadása</span>
+              <span class="skill-tag">együttműködés</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Csapatjátékos -->
+        <div class="skill-item" data-category="soft">
+          <div class="skill-logo-wrap soft-logo-bg" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div class="skill-item-body">
+            <div class="skill-item-header">
+              <span class="skill-name" data-i18n="skillTeamName">Csapatjátékos</span>
+              <span class="skill-level-chip" data-i18n="tagStrong">Magas szintű</span>
+            </div>
+            <div class="skill-item-tags">
+              <span class="skill-tag">nemzetközi csapat</span>
+              <span class="skill-tag">közös munka</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Stratégiai Szemlélet -->
+        <div class="skill-item" data-category="soft">
+          <div class="skill-logo-wrap soft-logo-bg" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+            </svg>
+          </div>
+          <div class="skill-item-body">
+            <div class="skill-item-header">
+              <span class="skill-name" data-i18n="skillStratName">Stratégiai Szemlélet</span>
+              <span class="skill-level-chip" data-i18n="tagStrong">Magas szintű</span>
+            </div>
+            <div class="skill-item-tags">
+              <span class="skill-tag">adatalapú tervezés</span>
+              <span class="skill-tag">rendszerszemlélet</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================
+         TILE 3: EXPERIENCE (PRO FOOTBALL FOCUS 2022–2025)
+         ======================================================== -->
+    <section class="bento-card experience-spotlight-tile" aria-labelledby="exp-heading">
+      <div class="card-glass-glow" aria-hidden="true"></div>
+      
+      <div class="pff-hero-banner">
+        <div class="pff-header-meta">
+          <div class="tag-pill tag-pff">
+            <span class="pulse-ring" aria-hidden="true"></span>
+            <span data-i18n="expSectionPill">Szakmai Tapasztalat</span>
+          </div>
+          <span class="date-badge">2022 – 2025</span>
+        </div>
+
+        <div class="pff-company-row">
+          <div class="pff-branding-group">
+            <div class="pff-logo-mark" aria-hidden="true">
+              <svg width="34" height="34" viewBox="0 0 32 32" fill="none">
+                <rect width="32" height="32" rx="8" fill="#0A0E17" stroke="#00C4B4" stroke-width="1.8"/>
+                <path d="M7 8.5h6.5c2 0 3.5 1 3.5 2.8s-1.5 2.8-3.5 2.8H9.5v5.4H7V8.5zm2.5 3.8h3.8c.8 0 1.4-.4 1.4-1.1s-.6-1.1-1.4-1.1H9.5v2.2z" fill="#00C4B4"/>
+                <path d="M18 8.5h6.5v2.4h-4v2.1h3.4v2.2h-3.4v5.3H18V8.5z" fill="#FFFFFF"/>
+              </svg>
+            </div>
+            <div>
+              <h2 id="exp-heading" class="company-name">Pro Football Focus (PFF)</h2>
+              <div class="role-title" data-i18n="pffRole">Elemző (Analyst)</div>
+            </div>
+          </div>
+          <div class="pff-status-pill" data-i18n="pffTenure">2022 – 2025</div>
+        </div>
+
+        <p class="company-summary" data-i18n="pffSummary">
+          Adatok gyűjtésével és elemzésével foglalkozó amerikai vállalat. Nagy pontosságú sportstatisztikai adatok gyűjtése, valós idejű és utólagos teljesítményértékelés, strukturált adatbázisok építése és minőségbiztosítás.
+        </p>
+
+        <!-- Detailed Responsibilities -->
+        <div class="pff-duties-list">
+          <div class="duty-row">
+            <div class="duty-bullet" aria-hidden="true"></div>
+            <div>
+              <strong data-i18n="pffDuty1Title">Nagy pontosságú sportstatisztikai adatgyűjtés:</strong>
+              <span data-i18n="pffDuty1Desc">Mérkőzésenként több száz precíziós adatpont mikroszintű rögzítése és kategorizálása az amerikai PFF sztenderdek szerint.</span>
+            </div>
+          </div>
+          <div class="duty-row">
+            <div class="duty-bullet" aria-hidden="true"></div>
+            <div>
+              <strong data-i18n="pffDuty2Title">Teljesítményértékelés és adatbázis-építés:</strong>
+              <span data-i18n="pffDuty2Desc">Játékos- és csapatszintű teljesítménymutatók kalkulációja, strukturált relációs adatbázisok konzisztenciájának fenntartása.</span>
+            </div>
+          </div>
+          <div class="duty-row">
+            <div class="duty-bullet" aria-hidden="true"></div>
+            <div>
+              <strong data-i18n="pffDuty3Title">Nemzetközi csapatteljesítmény:</strong>
+              <span data-i18n="pffDuty3Desc">Napi szintű szoros angol nyelvű együttműködés az amerikai központi elemző és statisztikai minőségbiztosító stábbal.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         TILE 4: ACADEMIC TIMELINE (TANULMÁNYOK - WITH CRESTS)
+         ======================================================== -->
+    <section class="bento-card academic-tile" aria-labelledby="edu-heading">
+      <div class="card-glass-glow" aria-hidden="true"></div>
+      
+      <div class="card-header-flex">
+        <div>
+          <span class="section-eyebrow" data-i18n="eduEyebrow">Akadémiai Háttér</span>
+          <h2 id="edu-heading" class="card-title" data-i18n="eduHeading">Tanulmányok</h2>
+        </div>
+      </div>
+
+      <div class="timeline-container">
+        <!-- Milestone 1: Corvinus -->
+        <article class="timeline-item current-study">
+          <div class="timeline-crest-wrap corvinus-crest" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C5A059" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 10h16M4 14h16M4 18h16M2 21h20M12 3l9 4.5H3L12 3zM6 10v8M10 10v8M14 10v8M18 10v8"></path>
+            </svg>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-period-badge">
+              <span>2021 – Jelenleg</span>
+              <span class="status-chip" data-i18n="eduStatusActive">Folyamatban</span>
+            </div>
+            <h3 class="timeline-inst">Budapesti Corvinus Egyetem</h3>
+            <p class="timeline-degree" data-i18n="eduCorvinusDegree">Gazdaság- és pénzügymatematikai elemzés</p>
+            <p class="timeline-notes" data-i18n="eduCorvinusDesc">
+              Elmélyült kvantitatív képzés: sztochasztika, ökonometria, statisztikai modellezés, pénzügyi matematika és adatelemzés.
+            </p>
+            <div class="timeline-tags">
+              <span class="mini-tag">Ökonometria</span>
+              <span class="mini-tag">Sztochasztika</span>
+              <span class="mini-tag">Pénzügyi modellezés</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Milestone 2: Gimnázium -->
+        <article class="timeline-item">
+          <div class="timeline-crest-wrap dobo-crest" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L3 6v6c0 5.25 3.75 10.15 9 11.25 5.25-1.1 9-6 9-11.25V6l-9-4z"></path>
+              <path d="M12 7v5M9.5 9.5h5"></path>
+              <path d="M9 16h6"></path>
+            </svg>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-period-badge">
+              <span>2021</span>
+              <span class="status-chip completed" data-i18n="eduStatusDone">Befejezve</span>
+            </div>
+            <h3 class="timeline-inst">Egri Dobó István Gimnázium</h3>
+            <p class="timeline-degree" data-i18n="eduDoboDegree">Érettségi</p>
+            <p class="timeline-notes" data-i18n="eduDoboDesc">
+              Erős reál és logikai alapok, emelt szintű analitikus és problémamegoldó felkészültség.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         TILE 5: LANGUAGE COMPETENCIES (NO PERCENTAGES, CLEAN)
+         ======================================================== -->
+    <section class="bento-card language-tile" aria-labelledby="lang-heading">
+      <div class="card-glass-glow" aria-hidden="true"></div>
+      
+      <div class="card-header-flex">
+        <div>
+          <span class="section-eyebrow" data-i18n="langEyebrow">Nyelvi Készségek</span>
+          <h2 id="lang-heading" class="card-title" data-i18n="langHeading">Nyelvtudás</h2>
+        </div>
+        <div class="lang-globe-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="languages-grid">
+        <!-- Hungarian Native -->
+        <div class="lang-dense-card">
+          <div class="lang-card-header">
+            <div class="lang-flag-mark hu-flag-mark" aria-hidden="true">HU</div>
+            <div>
+              <h3 class="lang-title" data-i18n="langHuName">Magyar</h3>
+              <span class="lang-subtext" data-i18n="langHuCefr">Anyanyelv</span>
+            </div>
+          </div>
+          <div class="lang-badge-row">
+            <span class="cefr-badge native-badge" data-i18n="langHuBadge">Anyanyelvi szint</span>
+          </div>
+        </div>
+
+        <!-- English B2 / C1 Working -->
+        <div class="lang-dense-card highlight-lang">
+          <div class="lang-card-header">
+            <div class="lang-flag-mark en-flag-mark" aria-hidden="true">EN</div>
+            <div>
+              <h3 class="lang-title" data-i18n="langEnName">Angol</h3>
+              <span class="lang-subtext" data-i18n="langEnSub">Munkanyelv & Bizonyítvány</span>
+            </div>
+          </div>
+
+          <div class="lang-badge-row">
+            <span class="cefr-badge b2-badge">B2 Komplex</span>
+            <span class="cefr-badge c1-badge" data-i18n="langEnBadgeC1">de facto C1 Munkanyelv</span>
+          </div>
+
+          <p class="lang-note" data-i18n="langEnNote">
+            3+ év napi szintű operatív angol nyelvű kommunikáció és adatelemzés az amerikai Pro Football Focus csapatával.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         TILE 6: DIRECT CONTACT & VCARD DOWNLOAD HUB
+         ======================================================== -->
+    <section class="bento-card contact-hub-tile" aria-labelledby="contact-heading">
+      <div class="card-glass-glow" aria-hidden="true"></div>
+      
+      <div class="card-header-flex">
+        <div>
+          <span class="section-eyebrow" data-i18n="contactEyebrow">Közvetlen Elérhetőség</span>
+          <h2 id="contact-heading" class="card-title" data-i18n="contactHeading">Kapcsolat & Névjegy</h2>
+        </div>
+        <div class="availability-indicator">
+          <span class="radar-ping" aria-hidden="true"></span>
+          <span class="avail-text" data-i18n="availText">Azonnal elérhető</span>
+        </div>
+      </div>
+
+      <div class="contact-hub-grid">
+        <!-- Direct Email Card -->
+        <div class="hub-interactive-item">
+          <div class="hub-item-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+          </div>
+          <div class="hub-item-body">
+            <span class="hub-item-label" data-i18n="emailLabel">E-mail Cím</span>
+            <a href="mailto:toth.kristof.eger@gmail.com" class="hub-item-link">toth.kristof.eger@gmail.com</a>
+          </div>
+          <button type="button" class="action-circle-btn copy-btn" data-copy="toth.kristof.eger@gmail.com" data-type="email" aria-label="E-mail cím másolása" title="E-mail másolása">
+            <svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Direct Phone Card -->
+        <div class="hub-interactive-item">
+          <div class="hub-item-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </div>
+          <div class="hub-item-body">
+            <span class="hub-item-label" data-i18n="phoneLabel">Telefonszám</span>
+            <a href="tel:+36308751075" class="hub-item-link">+36 30 875 1075</a>
+          </div>
+          <button type="button" class="action-circle-btn copy-btn" data-copy="+36308751075" data-type="phone" aria-label="Telefonszám másolása" title="Telefonszám másolása">
+            <svg class="copy-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Action Buttons for VCard & Print -->
+      <div class="hub-actions-bar">
+        <button id="vcard-download-btn" class="hub-btn primary" type="button">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span data-i18n="vcardFullBtn">vCard Névjegy Mentése (.vcf)</span>
+        </button>
+
+        <button id="print-secondary-btn" class="hub-btn secondary" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          <span data-i18n="printFullBtn">CV Letöltése / Nyomtatása</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Clean Minimalist Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span class="footer-copy">© 2026 Tóth Kristóf</span>
+        <span class="footer-divider">•</span>
+        <span class="footer-tagline" data-i18n="footerRole">Gazdaság- és pénzügymatematikai elemzés hallgató | Budapesti Corvinus Egyetem</span>
+      </div>
+      <div class="footer-right">
+        <span class="status-online" data-i18n="footerLocation">Budapesti Corvinus Egyetem • Pro Football Focus</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container for Accessible Copy & Download Messages -->
+  <div id="toast-container" class="toast-shelf" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Main JavaScript Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
